@@ -9,3 +9,4 @@ gibo dump macOS
 gibo dump Node
 gi react
 echo 'clock/build/*'
+echo 'example/build/*'

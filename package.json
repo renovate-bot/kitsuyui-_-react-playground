@@ -1,0 +1,10 @@
+{
+    "name": "react-playground",
+    "version": "0.1.0",
+    "private": true,
+    "license": "MIT",
+    "workspaces": [
+        "config/*",
+        "clock"
+    ]
+}

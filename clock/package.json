@@ -20,11 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format:prettier": "prettier --write .",
-    "format:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
-    "check:prettier": "prettier --check .",
-    "check:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

@@ -1,50 +1,45 @@
 module.exports = {
   extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "prettier",
-    "plugin:import/typescript"
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'prettier',
+    'plugin:import/typescript',
   ],
-  plugins: [
-    "react",
-    "@typescript-eslint",
-    "unused-imports",
-    "import",
-  ],
-  parser: "@typescript-eslint/parser",
+  plugins: ['react', '@typescript-eslint', 'unused-imports', 'import'],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    sourceType: "module",
-    project: "./tsconfig.json",
+    sourceType: 'module',
+    project: './tsconfig.json',
   },
   rules: {
-    "@typescript-eslint/no-unused-vars": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'error',
+    'unused-imports/no-unused-vars': [
+      'warn',
       {
-        vars: "all",
-        varsIgnorePattern: "^_",
-        args: "after-used",
-        argsIgnorePattern: "^_",
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
       },
     ],
-    "import/order": [
-      "error",
+    'import/order': [
+      'error',
       {
         groups: [
-          "builtin",
-          "external",
-          "internal",
-          ["parent", "sibling"],
-          "object",
-          "type",
-          "index",
+          'builtin',
+          'external',
+          'internal',
+          ['parent', 'sibling'],
+          'object',
+          'type',
+          'index',
         ],
-        "newlines-between": "always",
-        pathGroupsExcludedImportTypes: ["builtin"],
+        'newlines-between': 'always',
+        pathGroupsExcludedImportTypes: ['builtin'],
         alphabetize: {
-          order: "asc",
+          order: 'asc',
           caseInsensitive: true,
         },
       },
@@ -52,7 +47,7 @@ module.exports = {
   },
   settings: {
     react: {
-      version: "detect",
+      version: 'detect',
     },
   },
-};
+}

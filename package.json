@@ -1,10 +1,16 @@
 {
-    "name": "react-playground",
-    "version": "0.1.0",
-    "private": true,
-    "license": "MIT",
-    "workspaces": [
-        "config/*",
-        "clock"
-    ]
+  "name": "react-playground",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "format:prettier": "prettier --write .",
+    "format:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
+    "check:prettier": "prettier --check .",
+    "check:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore"
+  },
+  "workspaces": [
+    "config/*",
+    "clock"
+  ]
 }

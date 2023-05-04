@@ -1,27 +1,34 @@
-import Clock from '@react-playground/clock'
+import {
+  AnalogClock,
+  ClockContainer,
+  DateContext,
+  DigitalClock,
+} from '@react-playground/clock'
 import React from 'react'
 
-import logo from './logo.svg'
 import './App.css'
+
+const Clock = () => {
+  return (
+    <ClockContainer>
+      <DateContext.Consumer>
+        {(date: Date) => (
+          <>
+            <AnalogClock timezone="Asia/Tokyo" date={date} />
+            <DigitalClock timezone="Asia/Tokyo" date={date} />
+            <AnalogClock timezone="America/New_York" date={date} />
+            <DigitalClock timezone="America/New_York" date={date} />
+          </>
+        )}
+      </DateContext.Consumer>
+    </ClockContainer>
+  )
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Clock />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Clock />
     </div>
   )
 }

@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup ./src/index.tsx --dts",
-    "test": "jest --watchAll=false"
+    "test": "jest --watchAll=false --collect-coverage"
   },
   "browserslist": {
     "production": [

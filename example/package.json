@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "CI=true react-scripts test --no-watchman",
+    "test": "CI=true react-scripts test --no-watchman --collect-coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

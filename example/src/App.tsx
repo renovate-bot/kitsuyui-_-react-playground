@@ -3,7 +3,7 @@ import {
   ClockContainer,
   DateContext,
   DigitalClock,
-} from '@react-playground/clock'
+} from '@kitsuyui/react-clock'
 import React from 'react'
 
 import './App.css'

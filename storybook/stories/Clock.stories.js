@@ -1,4 +1,4 @@
-import { AnalogClock } from '@react-playground/clock'
+import { AnalogClock } from '@kitsuyui/react-clock'
 import React from 'react'
 
 export default {

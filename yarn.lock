@@ -1680,6 +1680,17 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@kitsuyui/react-clock@link:clock":
+  version "0.1.0"
+  dependencies:
+    "@types/luxon" "^3.3.0"
+    "@types/react" "^18.0.0"
+    "@types/react-dom" "^18.0.0"
+    luxon "^3.3.0"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-use "^17.4.0"
+
 "@leichtgewicht/ip-codec@^2.0.1":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
@@ -1739,31 +1750,6 @@
     loader-utils "^2.0.4"
     schema-utils "^3.0.0"
     source-map "^0.7.3"
-
-"@react-playground/clock@link:clock":
-  version "0.1.0"
-  dependencies:
-    "@types/luxon" "^3.3.0"
-    "@types/react" "^18.0.0"
-    "@types/react-dom" "^18.0.0"
-    luxon "^3.3.0"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-use "^17.4.0"
-
-"@react-playground/eslint-config-custom@link:config/eslint-config-custom":
-  version "0.1.1"
-  dependencies:
-    "@typescript-eslint/eslint-plugin" "^5.59.2"
-    "@typescript-eslint/parser" "^5.59.1"
-    eslint "^8.39.0"
-    eslint-config-prettier "^8.8.0"
-    eslint-import-resolver-typescript "^3.5.5"
-    eslint-plugin-import "^2.27.5"
-    eslint-plugin-react "^7.32.2"
-    eslint-plugin-unused-imports "^2.0.0"
-    prettier "^2.8.8"
-    react-scripts "5.0.1"
 
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.1"

@@ -1,5 +1,5 @@
 {
-  "name": "@react-playground/clock",
+  "name": "@kitsuyui/react-clock",
   "version": "0.1.0",
   "files": [
     "dist",
@@ -26,7 +26,7 @@
     "react-use": "^17.4.0"
   },
   "scripts": {
-    "build": "tsup ./src --dts",
+    "build": "tsup ./src/index.tsx --dts",
     "test": "jest --watchAll=false"
   },
   "browserslist": {
@@ -42,7 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@react-playground/eslint-config-custom": "link:../config/eslint-config-custom",
     "@swc/core": "^1.3.56",
     "@swc/jest": "^0.2.26",
     "@testing-library/jest-dom": "^5.14.1",
@@ -54,5 +53,7 @@
     "tsup": "^6.7.0",
     "typescript": "^5.0.4"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "author": "Yui Kitsu <kitsuyui@kitsuyui.com>",
+  "description": "A react component to display a clock."
 }

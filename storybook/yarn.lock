@@ -1291,6 +1291,10 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
+"@kitsuyui/react-clock@link:../clock":
+  version "0.0.0"
+  uid ""
+
 "@mdx-js/react@^2.1.5":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-2.3.0.tgz#4208bd6d70f0d0831def28ef28c26149b03180b3"
@@ -1343,10 +1347,6 @@
     loader-utils "^2.0.4"
     schema-utils "^3.0.0"
     source-map "^0.7.3"
-
-"@react-playground/clock@link:../clock":
-  version "0.0.0"
-  uid ""
 
 "@sinclair/typebox@^0.25.16":
   version "0.25.24"

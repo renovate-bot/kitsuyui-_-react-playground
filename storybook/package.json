@@ -18,7 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.8",
-    "@react-playground/clock": "link:../clock"
+    "@kitsuyui/react-clock": "link:../clock"
   },
   "scripts": {
     "storybook": "storybook dev -p 6006",

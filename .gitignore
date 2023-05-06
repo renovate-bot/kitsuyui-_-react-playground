@@ -231,4 +231,5 @@ thumb
 sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react
-clock/build/*
+packages/*/build/*
+example/build/*

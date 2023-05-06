@@ -1680,7 +1680,7 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
-"@kitsuyui/react-clock@link:clock":
+"@kitsuyui/react-clock@link:packages/clock":
   version "0.1.0"
   dependencies:
     "@types/luxon" "^3.3.0"

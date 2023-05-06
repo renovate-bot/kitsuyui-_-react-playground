@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render AnalogClock 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    height="100"
+    viewBox="0 0 100 100"
+    width="100"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle
+      cx="50"
+      cy="50"
+      fill="white"
+      r="45"
+      stroke="black"
+      stroke-width="2"
+    />
+    <circle
+      cx="50"
+      cy="50"
+      fill="black"
+      r="2"
+      stroke="black"
+      stroke-width="2"
+    />
+    <line
+      stroke="black"
+      stroke-width="2"
+      x1="50"
+      x2="20"
+      y1="50"
+      y2="50.00000000000001"
+    />
+    <line
+      stroke="black"
+      stroke-width="2"
+      x1="50"
+      x2="50"
+      y1="50"
+      y2="10"
+    />
+    <line
+      stroke="red"
+      stroke-width="2"
+      x1="50"
+      x2="50"
+      y1="50"
+      y2="10"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`render DigitalClock 1`] = `
+<DocumentFragment>
+  <div>
+    09:00:00 AM (Asia/Tokyo)
+  </div>
+</DocumentFragment>
+`;

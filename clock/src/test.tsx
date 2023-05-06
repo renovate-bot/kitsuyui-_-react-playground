@@ -3,8 +3,16 @@ import React from 'react'
 
 import { AnalogClock, DigitalClock } from '.'
 
-test('renders learn react link', () => {
+test('render AnalogClock', () => {
   const dt = new Date('2021-01-01T00:00:00Z')
-  render(<AnalogClock timezone="Asia/Tokyo" date={dt} />)
-  render(<DigitalClock timezone="Asia/Tokyo" date={dt} />)
+  const { asFragment } = render(<AnalogClock timezone="Asia/Tokyo" date={dt} />)
+  expect(asFragment()).toMatchSnapshot()
+})
+
+test('render DigitalClock', () => {
+  const dt = new Date('2021-01-01T00:00:00Z')
+  const { asFragment } = render(
+    <DigitalClock timezone="Asia/Tokyo" date={dt} />
+  )
+  expect(asFragment()).toMatchSnapshot()
 })

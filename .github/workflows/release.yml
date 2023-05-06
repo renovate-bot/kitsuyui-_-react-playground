@@ -56,7 +56,7 @@ jobs:
           cd $built_dir
           rm -rf $tempdir
 
-      - run: npm publish
+      - run: npm publish --access=public
         working-directory: packages/${{ matrix.package_name }}
         if: github.event_name == 'release' && !github.event.release.prerelease
         env:

@@ -27,23 +27,26 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: install and build
+        working-directory: packages/${{ matrix.package_name }}
         run: |
           yarn install
           yarn build
 
       - name: update version
+        working-directory: packages/${{ matrix.package_name }}
         if: github.event_name == 'release'
         run: |
           git config user.email "dummy@dummy"
           git config user.name "dummy"
-          cd packages/${{ matrix.package_name }}
           npm version from-git --allow-same-version --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - run: npm pack
+      - working-directory: packages/${{ matrix.package_name }}
+        run: npm pack
 
       - name: Test installation
+        working-directory: packages/${{ matrix.package_name }}
         run: |
           set -eu
           built_dir=$(pwd)

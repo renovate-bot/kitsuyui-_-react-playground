@@ -6,6 +6,7 @@
   "scripts": {
     "build": "turbo build",
     "test": "turbo test",
+    "lint": "turbo lint",
     "format:prettier": "prettier --write .",
     "format:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
     "lint:prettier": "prettier --check .",

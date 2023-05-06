@@ -4,14 +4,19 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "turbo build",
+    "test": "turbo test",
     "format:prettier": "prettier --write .",
     "format:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
-    "check:prettier": "prettier --check .",
-    "check:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore"
+    "lint:prettier": "prettier --check .",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore"
   },
   "workspaces": [
     "config/*",
     "packages/*",
     "example"
-  ]
+  ],
+  "devDependencies": {
+    "turbo": "^1.9.3"
+  }
 }

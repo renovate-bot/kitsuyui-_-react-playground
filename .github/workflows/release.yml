@@ -57,6 +57,7 @@ jobs:
           rm -rf $tempdir
 
       - run: npm publish
+        working-directory: packages/${{ matrix.package_name }}
         if: github.event_name == 'release' && !github.event.release.prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

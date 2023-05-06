@@ -3,8 +3,8 @@ import React from 'react'
 
 import App from './App'
 
-test('renders learn react link', () => {
+test('renders clock', () => {
   render(<App />)
-  const linkElement = screen.getByText(/learn react/i)
-  expect(linkElement).toBeInTheDocument()
+  const clock = screen.getByText(/Asia\/Tokyo/i)
+  expect(clock).toBeInTheDocument()
 })

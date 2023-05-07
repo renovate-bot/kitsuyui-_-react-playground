@@ -9,4 +9,4 @@ gibo dump macOS
 gibo dump Node
 gi react
 echo 'packages/*/build/*'
-echo 'example/build/*'
+echo 'examples/*/build/*'

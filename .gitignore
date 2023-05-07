@@ -232,4 +232,4 @@ sketch
 
 # End of https://www.toptal.com/developers/gitignore/api/react
 packages/*/build/*
-example/build/*
+examples/*/build/*

@@ -1,4 +1,4 @@
 export * from './analog'
 export * from './digital'
-export * from './types'
+export type * from './types'
 export * from './container'

@@ -2,16 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { useInterval } from 'react-use'
 
-import AnalogClock from './analog'
-import DigitalClock from './digital'
-import { ClockProps } from './types'
+import { ClockContainerProps } from './types'
 
 export const DateContext = React.createContext(new Date())
-
-type ClockContainerProps = {
-  children: React.ReactElement | React.ReactElement[]
-  refreshInterval?: number
-}
 
 export const ClockContainer: React.FunctionComponent<ClockContainerProps> = (
   props
@@ -28,6 +21,3 @@ export const ClockContainer: React.FunctionComponent<ClockContainerProps> = (
 
   return <DateContext.Provider value={date}>{children}</DateContext.Provider>
 }
-
-export { AnalogClock, DigitalClock }
-export type { ClockProps }

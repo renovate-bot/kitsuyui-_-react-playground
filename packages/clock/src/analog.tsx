@@ -3,7 +3,7 @@ import React from 'react'
 
 import { ClockProps } from './types'
 
-const AnalogClock: React.FunctionComponent<ClockProps> = (
+export const AnalogClock: React.FunctionComponent<ClockProps> = (
   props
 ): JSX.Element => {
   const { timezone, date } = props
@@ -74,5 +74,3 @@ const AnalogClock: React.FunctionComponent<ClockProps> = (
     </svg>
   )
 }
-
-export default AnalogClock

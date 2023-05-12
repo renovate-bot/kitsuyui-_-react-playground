@@ -1291,13 +1291,13 @@
   resolved "https://registry.yarnpkg.com/@juggle/resize-observer/-/resize-observer-3.4.0.tgz#08d6c5e20cf7e4cc02fd181c4b0c225cd31dbb60"
   integrity sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==
 
-"@kitsuyui/react-clock@file:../packages/clock":
+"@kitsuyui/react-clock@link:../packages/clock":
   version "0.0.0"
-  dependencies:
-    luxon "^3.3.0"
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-use "^17.4.0"
+  uid ""
+
+"@kitsuyui/react-timer@link:../packages/timer":
+  version "0.0.0"
+  uid ""
 
 "@mdx-js/react@^2.1.5":
   version "2.3.0"

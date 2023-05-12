@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@kitsuyui/react-clock": "file:../../packages/clock"
+    "@kitsuyui/react-clock": "link:../../packages/clock",
+    "@kitsuyui/react-timer": "link:../../packages/timer"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",

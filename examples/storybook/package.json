@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "private": true,
   "devDependencies": {
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
@@ -18,10 +19,11 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.0.8",
-    "@kitsuyui/react-clock": "file:../packages/clock",
-    "@kitsuyui/react-timer": "file:../packages/timer"
+    "@kitsuyui/react-clock": "file:../../packages/clock",
+    "@kitsuyui/react-timer": "file:../../packages/timer"
   },
   "scripts": {
+    "start": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   }

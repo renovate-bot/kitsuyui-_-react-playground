@@ -14,7 +14,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        package_name: [clock, timer]
+        package_name: [clock, timer, stopwatch]
 
     steps:
       - uses: actions/checkout@v3

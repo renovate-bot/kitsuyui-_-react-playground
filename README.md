@@ -23,7 +23,7 @@ For Next.js, see https://github.com/kitsuyui/nextjs-playground/ .
       https://www.npmjs.com/package/@kitsuyui/react-clock
 - [x] `@kitsuyui/react-timer` ... [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-timer.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-timer)
       https://www.npmjs.com/package/@kitsuyui/react-timer
-- [ ] Stopwatch
+- [x] `@kitsuyui/react-stopwatch` ... [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-stopwatch.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-stopwatch)
 - [ ] Alarm
 - [ ] Dice
 

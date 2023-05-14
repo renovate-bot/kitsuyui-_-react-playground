@@ -2,6 +2,8 @@
 
 [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-stopwatch.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-stopwatch)
 
+<img width="204" alt="Stopwatch" src="https://github.com/kitsuyui/react-playground/assets/2596972/b25cc228-24ce-45eb-850a-c3775b708d3d">
+
 ## Installation
 
 ### npm

@@ -5,6 +5,12 @@ import {
   DigitalClock,
 } from '@kitsuyui/react-clock'
 import {
+  StopwatchContainer,
+  MinimalStopwatch,
+  StopwatchContext,
+  StopwatchProps,
+} from '@kitsuyui/react-stopwatch'
+import {
   MinimalTimer,
   TimerContainer,
   TimerContext,
@@ -41,11 +47,22 @@ const Timer = () => {
   )
 }
 
+const Stopwatch = () => {
+  return (
+    <StopwatchContainer>
+      <StopwatchContext.Consumer>
+        {(props: StopwatchProps) => <MinimalStopwatch {...props} />}
+      </StopwatchContext.Consumer>
+    </StopwatchContainer>
+  )
+}
+
 function App() {
   return (
     <div className="App">
       <Clock />
       <Timer />
+      <Stopwatch />
     </div>
   )
 }

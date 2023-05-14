@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render MinimalStopwatch 1`] = `
+<DocumentFragment>
+  <div
+    style="border: 1px solid black; width: 6em;"
+  >
+    <form>
+      <span>
+        NaN:NaN
+      </span>
+      <br />
+      <button
+        name="reset"
+        type="submit"
+      >
+        Reset
+      </button>
+      <button
+        type="submit"
+      >
+        Start
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;

@@ -20,7 +20,8 @@
     "react-dom": "^18.2.0",
     "storybook": "^7.0.8",
     "@kitsuyui/react-clock": "file:../../packages/clock",
-    "@kitsuyui/react-timer": "file:../../packages/timer"
+    "@kitsuyui/react-timer": "file:../../packages/timer",
+    "@kitsuyui/react-stopwatch": "file:../../packages/stopwatch"
   },
   "scripts": {
     "start": "storybook dev -p 6006",

@@ -5,8 +5,7 @@ import { useInterval } from 'react-use'
 import type { StopwatchContainerProps } from './types'
 export type * from './types'
 
-// TODO: use Date instead of number when running
-// TODO: Support leap second
+// TODO: Support leap second: https://github.com/kitsuyui/react-playground/issues/40
 export const StopwatchContext = React.createContext({
   elapsedTime: 0,
   running: false,
@@ -24,30 +23,74 @@ export const StopwatchContext = React.createContext({
   },
 })
 
+export function calcTimeDiff(startTime: Date, endTime: Date) {
+  return (endTime.getTime() - startTime.getTime()) / 1000
+}
+
+function calcElapsedTime(startTime: Date) {
+  return calcTimeDiff(startTime, new Date())
+}
+
 export const StopwatchContainer: React.FunctionComponent<
   StopwatchContainerProps
 > = (props): JSX.Element => {
   const { children } = props
   const [running, setRunning] = useState(false)
-  const [elapsedTime, setElapsedTime] = useState(0)
+  const [elapsedTimeInLap, setElapsedTimeInLap] = useState(0)
+  const [elapsedTimeTotal, setElapsedTimeTotal] = useState(0)
+  const [startTime, setStartTime] = useState(new Date())
 
   const refreshInterval = props.refreshInterval || 10 // default 10ms
-  const delayPerRefresh = refreshInterval / 1000
 
-  // TODO: more precise way to measure time
   useInterval(() => {
     if (running) {
-      setElapsedTime(elapsedTime + delayPerRefresh)
+      updateElapsedTime()
     }
   }, refreshInterval)
 
+  function updateElapsedTime() {
+    setElapsedTimeInLap(calcElapsedTime(startTime))
+  }
+
+  function moveLapToTotal() {
+    setElapsedTimeTotal(elapsedTimeTotal + elapsedTimeInLap)
+    setElapsedTimeInLap(0)
+  }
+
+  function start() {
+    if (running) {
+      return
+    }
+    setStartTime(new Date())
+    setRunning(true)
+  }
+
+  function stop() {
+    if (!running) {
+      return
+    }
+    updateElapsedTime()
+    setRunning(false)
+    moveLapToTotal()
+  }
+
   function toggle() {
     if (running) {
-      setRunning(false)
+      stop()
     } else {
-      setRunning(true)
+      start()
     }
   }
+
+  function reset() {
+    if (running) {
+      stop()
+    }
+    setElapsedTimeInLap(0)
+    setElapsedTimeTotal(0)
+  }
+
+  const elapsedTime = elapsedTimeInLap + elapsedTimeTotal
 
   return (
     <StopwatchContext.Provider
@@ -55,18 +98,9 @@ export const StopwatchContainer: React.FunctionComponent<
         elapsedTime,
         running,
         toggle,
-        reset() {
-          if (running) {
-            setRunning(false)
-          }
-          setElapsedTime(0)
-        },
-        start() {
-          setRunning(true)
-        },
-        stop() {
-          setRunning(false)
-        },
+        reset,
+        start,
+        stop,
       }}
     >
       {children}

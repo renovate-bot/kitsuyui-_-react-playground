@@ -7,7 +7,7 @@ exports[`render MinimalTimer 1`] = `
   >
     <form>
       <span>
-        16:40
+        16:40.000
       </span>
       <br />
       <button

@@ -5,8 +5,7 @@ import { useInterval } from 'react-use'
 import type { TimerContainerProps } from './types'
 export type * from './types'
 
-// TODO: use Date instead of number when running
-// TODO: Support leap second
+// TODO: Support leap second: https://github.com/kitsuyui/react-playground/issues/40
 export const TimerContext = React.createContext({
   remaining: 0,
   running: false,
@@ -30,20 +29,24 @@ export const TimerContext = React.createContext({
   },
 })
 
+export function calcRemaining(targetDate: Date) {
+  return (targetDate.getTime() - new Date().getTime()) / 1000
+}
+
 export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props
   const [running, setRunning] = useState(false)
+  const [targetDate, setTargetDate] = useState(new Date())
   const [remaining, setRemaining] = useState(0)
 
   const refreshInterval = props.refreshInterval || 10 // default 10ms
-  const delayPerRefresh = refreshInterval / 1000
 
-  // TODO: more precise way to measure time
   useInterval(() => {
     if (running) {
-      setRemaining(remaining - delayPerRefresh)
+      const remaining = calcRemaining(targetDate)
+      setRemaining(remaining)
       if (remaining <= 0) {
         setRemaining(0)
         setRunning(false)
@@ -53,10 +56,26 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
 
   function toggle() {
     if (running) {
-      setRunning(false)
+      stop()
     } else {
-      setRunning(true)
+      start()
     }
+  }
+
+  function reset() {
+    if (running) {
+      stop()
+    }
+    setRemaining(0)
+  }
+
+  function start() {
+    setTargetDate(new Date(Date.now() + remaining * 1000))
+    setRunning(true)
+  }
+
+  function stop() {
+    setRunning(false)
   }
 
   return (
@@ -65,19 +84,15 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
         remaining,
         running,
         toggle,
-        reset() {
-          setRemaining(0)
-        },
-        start() {
-          setRunning(true)
-        },
-        stop() {
-          setRunning(false)
-        },
+        reset,
+        start,
+        stop,
         setTimerValue(value: number) {
+          stop()
           setRemaining(value || 0)
         },
         incrementTimerValue(value: number) {
+          stop()
           setRemaining(remaining + value)
         },
       }}

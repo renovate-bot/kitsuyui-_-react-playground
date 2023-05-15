@@ -4,20 +4,26 @@ import type { TimerProps } from './types'
 export type * from './types'
 export * from './container'
 
+export function toLabel(value: number) {
+  const twoDigit = new Intl.NumberFormat('en-US', {
+    minimumIntegerDigits: 2,
+  })
+  const threeDigit = new Intl.NumberFormat('en-US', {
+    minimumIntegerDigits: 3,
+  })
+
+  const minutes = Math.floor(value / 60)
+  const seconds = value % 60 | 0
+  const milliseconds = (value % 1) * 1000
+  return `${twoDigit.format(minutes)}:${twoDigit.format(
+    seconds
+  )}.${threeDigit.format(milliseconds)}`
+}
+
 export const MinimalTimer: React.FunctionComponent<TimerProps> = (
   props
 ): JSX.Element => {
   const { remaining, running, incrementTimerValue, toggle, reset } = props
-
-  function toLabel(value: number) {
-    const minutes = Math.floor(value / 60)
-    const seconds = value % 60
-    return `${fmt.format(minutes)}:${fmt.format(seconds)}`
-  }
-
-  const fmt = new Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 2,
-  })
 
   return (
     <div

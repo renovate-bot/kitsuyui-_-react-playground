@@ -15,4 +15,6 @@ export type StopwatchProps = StopwatchValue & StopwatchActions
 export interface StopwatchContainerProps {
   refreshInterval?: number
   children: React.ReactElement | React.ReactElement[]
+  onStart?(): void
+  onStop?(): void
 }

@@ -35,6 +35,16 @@ export const StopwatchContainer: React.FunctionComponent<
   StopwatchContainerProps
 > = (props): JSX.Element => {
   const { children } = props
+  const onStart =
+    props.onStart ||
+    (() => {
+      /* do nothing */
+    })
+  const onStop =
+    props.onStop ||
+    (() => {
+      /* do nothing */
+    })
   const [running, setRunning] = useState(false)
   const [elapsedTimeInLap, setElapsedTimeInLap] = useState(0)
   const [elapsedTimeTotal, setElapsedTimeTotal] = useState(0)
@@ -61,6 +71,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (running) {
       return
     }
+    onStart()
     setStartTime(new Date())
     setRunning(true)
   }
@@ -69,6 +80,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (!running) {
       return
     }
+    onStop()
     updateElapsedTime()
     setRunning(false)
     moveLapToTotal()

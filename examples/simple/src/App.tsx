@@ -53,7 +53,10 @@ const Timer = () => {
 
 const Stopwatch = () => {
   return (
-    <StopwatchContainer>
+    <StopwatchContainer
+      onStart={() => console.log('start')}
+      onStop={() => console.log('stop')}
+    >
       <StopwatchContext.Consumer>
         {(props: StopwatchProps) => <MinimalStopwatch {...props} />}
       </StopwatchContext.Consumer>

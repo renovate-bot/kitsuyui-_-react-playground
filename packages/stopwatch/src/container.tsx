@@ -35,6 +35,12 @@ export const StopwatchContainer: React.FunctionComponent<
   StopwatchContainerProps
 > = (props): JSX.Element => {
   const { children } = props
+  const emptyFn = (_event: CustomEvent) => {
+    /* do nothing */
+  }
+  const onStart = props.onStart ?? emptyFn
+  const onStop = props.onStop ?? emptyFn
+  const onReset = props.onReset ?? emptyFn
   const [running, setRunning] = useState(false)
   const [elapsedTimeInLap, setElapsedTimeInLap] = useState(0)
   const [elapsedTimeTotal, setElapsedTimeTotal] = useState(0)
@@ -61,6 +67,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (running) {
       return
     }
+    onStart(new CustomEvent('start', {}))
     setStartTime(new Date())
     setRunning(true)
   }
@@ -69,6 +76,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (!running) {
       return
     }
+    onStop(new CustomEvent('stop', {}))
     updateElapsedTime()
     setRunning(false)
     moveLapToTotal()
@@ -86,6 +94,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (running) {
       stop()
     }
+    onReset(new CustomEvent('reset', {}))
     setElapsedTimeInLap(0)
     setElapsedTimeTotal(0)
   }

@@ -37,6 +37,13 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props
+  const emptyFn = (_event: CustomEvent) => {
+    /* do nothing */
+  }
+  const onStart = props.onStart ?? emptyFn
+  const onStop = props.onStop ?? emptyFn
+  const onComplete = props.onComplete ?? emptyFn
+  const onReset = props.onReset ?? emptyFn
   const [running, setRunning] = useState(false)
   const [targetDate, setTargetDate] = useState(new Date())
   const [remaining, setRemaining] = useState(0)
@@ -44,15 +51,21 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   const refreshInterval = props.refreshInterval || 10 // default 10ms
 
   useInterval(() => {
+    tick()
+  }, refreshInterval)
+
+  function tick() {
+    // It can't be ticked if it is not running.
     if (running) {
       const remaining = calcRemaining(targetDate)
       setRemaining(remaining)
       if (remaining <= 0) {
         setRemaining(0)
         setRunning(false)
+        onComplete(new CustomEvent('complete', {}))
       }
     }
-  }, refreshInterval)
+  }
 
   function toggle() {
     if (running) {
@@ -63,19 +76,35 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   }
 
   function reset() {
+    // First, stop the timer if it is running.
     if (running) {
       stop()
     }
     setRemaining(0)
+    onReset(new CustomEvent('reset', {}))
   }
 
   function start() {
+    // It can't be started if the remaining time is 0.
+    if (remaining <= 0) {
+      return
+    }
+    // It can't be started if it is already running.
+    if (running) {
+      return
+    }
     setTargetDate(new Date(Date.now() + remaining * 1000))
     setRunning(true)
+    onStart(new CustomEvent('start', {}))
   }
 
   function stop() {
+    // It can't be stopped if it is not running.
+    if (!running) {
+      return
+    }
     setRunning(false)
+    onStop(new CustomEvent('stop', {}))
   }
 
   return (

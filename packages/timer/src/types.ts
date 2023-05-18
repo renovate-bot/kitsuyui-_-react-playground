@@ -17,4 +17,7 @@ export type TimerProps = TimerValue & TimerActions
 export interface TimerContainerProps {
   refreshInterval?: number
   children: React.ReactElement | React.ReactElement[]
+  onStart?(): void
+  onStop?(): void
+  onComplete?(): void
 }

@@ -39,7 +39,11 @@ const Clock = () => {
 
 const Timer = () => {
   return (
-    <TimerContainer>
+    <TimerContainer
+      onStart={() => console.log('start')}
+      onStop={() => console.log('stop')}
+      onComplete={() => console.log('complete')}
+    >
       <TimerContext.Consumer>
         {(timer: TimerProps) => <MinimalTimer {...timer} />}
       </TimerContext.Consumer>

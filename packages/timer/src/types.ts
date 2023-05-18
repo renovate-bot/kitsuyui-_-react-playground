@@ -20,4 +20,5 @@ export interface TimerContainerProps {
   onStart?(): void
   onStop?(): void
   onComplete?(): void
+  onReset?(): void
 }

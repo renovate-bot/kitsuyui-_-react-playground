@@ -17,4 +17,5 @@ export interface StopwatchContainerProps {
   children: React.ReactElement | React.ReactElement[]
   onStart?(): void
   onStop?(): void
+  onReset?(): void
 }

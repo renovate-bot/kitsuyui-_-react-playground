@@ -40,6 +40,7 @@ export const StopwatchContainer: React.FunctionComponent<
   }
   const onStart = props.onStart ?? emptyFn
   const onStop = props.onStop ?? emptyFn
+  const onReset = props.onReset ?? emptyFn
   const [running, setRunning] = useState(false)
   const [elapsedTimeInLap, setElapsedTimeInLap] = useState(0)
   const [elapsedTimeTotal, setElapsedTimeTotal] = useState(0)
@@ -93,6 +94,7 @@ export const StopwatchContainer: React.FunctionComponent<
     if (running) {
       stop()
     }
+    onReset()
     setElapsedTimeInLap(0)
     setElapsedTimeTotal(0)
   }

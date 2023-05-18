@@ -43,6 +43,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   const onStart = props.onStart ?? emptyFn
   const onStop = props.onStop ?? emptyFn
   const onComplete = props.onComplete ?? emptyFn
+  const onReset = props.onReset ?? emptyFn
   const [running, setRunning] = useState(false)
   const [targetDate, setTargetDate] = useState(new Date())
   const [remaining, setRemaining] = useState(0)
@@ -80,6 +81,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
       stop()
     }
     setRemaining(0)
+    onReset()
   }
 
   function start() {

@@ -52,5 +52,5 @@
   },
   "license": "MIT",
   "author": "Yui Kitsu <kitsuyui@kitsuyui.com>",
-  "description": "A react component to display a clock."
+  "description": "A react component to display a timer"
 }

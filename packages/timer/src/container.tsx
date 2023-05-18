@@ -37,7 +37,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props
-  const emptyFn = () => {
+  const emptyFn = (_event: CustomEvent) => {
     /* do nothing */
   }
   const onStart = props.onStart ?? emptyFn
@@ -62,7 +62,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
       if (remaining <= 0) {
         setRemaining(0)
         setRunning(false)
-        onComplete()
+        onComplete(new CustomEvent('complete', {}))
       }
     }
   }
@@ -81,7 +81,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
       stop()
     }
     setRemaining(0)
-    onReset()
+    onReset(new CustomEvent('reset', {}))
   }
 
   function start() {
@@ -95,7 +95,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
     }
     setTargetDate(new Date(Date.now() + remaining * 1000))
     setRunning(true)
-    onStart()
+    onStart(new CustomEvent('start', {}))
   }
 
   function stop() {
@@ -104,7 +104,7 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
       return
     }
     setRunning(false)
-    onStop()
+    onStop(new CustomEvent('stop', {}))
   }
 
   return (

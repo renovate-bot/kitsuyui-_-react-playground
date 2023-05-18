@@ -40,10 +40,10 @@ const Clock = () => {
 const Timer = () => {
   return (
     <TimerContainer
-      onStart={() => console.log('start')}
-      onStop={() => console.log('stop')}
-      onComplete={() => console.log('complete')}
-      onReset={() => console.log('reset')}
+      onStart={(e) => console.log('start', e)}
+      onStop={(e) => console.log('stop', e)}
+      onComplete={(e) => console.log('complete', e)}
+      onReset={(e) => console.log('reset', e)}
     >
       <TimerContext.Consumer>
         {(timer: TimerProps) => <MinimalTimer {...timer} />}
@@ -55,9 +55,9 @@ const Timer = () => {
 const Stopwatch = () => {
   return (
     <StopwatchContainer
-      onStart={() => console.log('start')}
-      onStop={() => console.log('stop')}
-      onReset={() => console.log('reset')}
+      onStart={(e) => console.log('start', e)}
+      onStop={(e) => console.log('stop', e)}
+      onReset={(e) => console.log('reset', e)}
     >
       <StopwatchContext.Consumer>
         {(props: StopwatchProps) => <MinimalStopwatch {...props} />}

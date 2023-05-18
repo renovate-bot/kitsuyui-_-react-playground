@@ -37,21 +37,12 @@ export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props
-  const onStart =
-    props.onStart ||
-    (() => {
-      /* do nothing */
-    })
-  const onStop =
-    props.onStop ||
-    (() => {
-      /* do nothing */
-    })
-  const onComplete =
-    props.onComplete ||
-    (() => {
-      /* do nothing */
-    })
+  const emptyFn = () => {
+    /* do nothing */
+  }
+  const onStart = props.onStart ?? emptyFn
+  const onStop = props.onStop ?? emptyFn
+  const onComplete = props.onComplete ?? emptyFn
   const [running, setRunning] = useState(false)
   const [targetDate, setTargetDate] = useState(new Date())
   const [remaining, setRemaining] = useState(0)

@@ -35,16 +35,11 @@ export const StopwatchContainer: React.FunctionComponent<
   StopwatchContainerProps
 > = (props): JSX.Element => {
   const { children } = props
-  const onStart =
-    props.onStart ||
-    (() => {
-      /* do nothing */
-    })
-  const onStop =
-    props.onStop ||
-    (() => {
-      /* do nothing */
-    })
+  const emptyFn = () => {
+    /* do nothing */
+  }
+  const onStart = props.onStart ?? emptyFn
+  const onStop = props.onStop ?? emptyFn
   const [running, setRunning] = useState(false)
   const [elapsedTimeInLap, setElapsedTimeInLap] = useState(0)
   const [elapsedTimeTotal, setElapsedTimeTotal] = useState(0)

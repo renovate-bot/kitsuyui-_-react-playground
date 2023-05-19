@@ -28,7 +28,7 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
-    "test": "playwright test",
+    "test:vrt": "playwright test",
     "build-storybook": "storybook build"
   }
 }

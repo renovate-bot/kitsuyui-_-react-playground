@@ -8,6 +8,7 @@
     "build": "turbo build",
     "test": "turbo test",
     "lint": "turbo lint",
+    "test:vrt": "turbo test:vrt",
     "format:prettier": "prettier --write .",
     "format:eslint": "eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
     "lint:prettier": "prettier --check .",

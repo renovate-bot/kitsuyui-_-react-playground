@@ -20,3 +20,10 @@ jobs:
 
       - name: Visual Regression Test
         run: yarn test:vrt
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: playwright-report
+          path: examples/storybook/playwright-report/
+          retention-days: 1

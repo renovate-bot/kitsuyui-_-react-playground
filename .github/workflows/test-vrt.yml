@@ -1,0 +1,29 @@
+name: test-vrt
+on: push
+jobs:
+  test:
+    runs-on: macos-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: latest
+          cache: yarn
+          cache-dependency-path: yarn.lock
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Test
+        run: yarn build
+
+      - name: Visual Regression Test
+        run: yarn test:vrt
+
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: playwright-report
+          path: examples/storybook/playwright-report/
+          retention-days: 1

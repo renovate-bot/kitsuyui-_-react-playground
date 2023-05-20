@@ -24,53 +24,68 @@ export const AnalogClock: React.FunctionComponent<ClockProps> = (
   const centerX = 50
   const centerY = 50
   return (
-    <svg
-      viewBox="0 0 100 100"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      width="100"
-      height="100"
+    <div
+      style={{
+        width: '100px',
+        height: '100px',
+      }}
     >
-      <circle
-        cx={centerX}
-        cy={centerY}
-        r="45"
-        stroke="black"
-        strokeWidth="2"
-        fill="white"
-      />
-      <circle
-        cx={centerX}
-        cy={centerY}
-        r="2"
-        stroke="black"
-        strokeWidth="2"
-        fill="black"
-      />
-      <line
-        x1={centerX}
-        y1={centerY}
-        x2={centerX + bigHandLength * Math.sin(hour * 30 * (Math.PI / 180))}
-        y2={centerY - bigHandLength * Math.cos(hour * 30 * (Math.PI / 180))}
-        stroke={bigHandColor}
-        strokeWidth={bigHandWidth}
-      />
-      <line
-        x1={centerX}
-        y1={centerY}
-        x2={centerX + minuteHandLength * Math.sin(minute * 6 * (Math.PI / 180))}
-        y2={centerY - minuteHandLength * Math.cos(minute * 6 * (Math.PI / 180))}
-        stroke={smallHandColor}
-        strokeWidth={smallHandWidth}
-      />
-      <line
-        x1={centerX}
-        y1={centerY}
-        x2={centerX + secondHandLength * Math.sin(second * 6 * (Math.PI / 180))}
-        y2={centerY - secondHandLength * Math.cos(second * 6 * (Math.PI / 180))}
-        stroke={secondHandColor}
-        strokeWidth={secondHandWidth}
-      />
-    </svg>
+      <svg
+        viewBox="0 0 100 100"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        width="100"
+        height="100"
+      >
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r="45"
+          stroke="black"
+          strokeWidth="2"
+          fill="white"
+        />
+        <circle
+          cx={centerX}
+          cy={centerY}
+          r="2"
+          stroke="black"
+          strokeWidth="2"
+          fill="black"
+        />
+        <line
+          x1={centerX}
+          y1={centerY}
+          x2={centerX + bigHandLength * Math.sin(hour * 30 * (Math.PI / 180))}
+          y2={centerY - bigHandLength * Math.cos(hour * 30 * (Math.PI / 180))}
+          stroke={bigHandColor}
+          strokeWidth={bigHandWidth}
+        />
+        <line
+          x1={centerX}
+          y1={centerY}
+          x2={
+            centerX + minuteHandLength * Math.sin(minute * 6 * (Math.PI / 180))
+          }
+          y2={
+            centerY - minuteHandLength * Math.cos(minute * 6 * (Math.PI / 180))
+          }
+          stroke={smallHandColor}
+          strokeWidth={smallHandWidth}
+        />
+        <line
+          x1={centerX}
+          y1={centerY}
+          x2={
+            centerX + secondHandLength * Math.sin(second * 6 * (Math.PI / 180))
+          }
+          y2={
+            centerY - secondHandLength * Math.cos(second * 6 * (Math.PI / 180))
+          }
+          stroke={secondHandColor}
+          strokeWidth={secondHandWidth}
+        />
+      </svg>
+    </div>
   )
 }

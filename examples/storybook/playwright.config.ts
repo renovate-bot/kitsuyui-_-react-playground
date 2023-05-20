@@ -20,6 +20,21 @@ export default defineConfig({
   // Reporter to use
   reporter: 'html',
 
+  expect: {
+    // Maximum time expect() should wait for the condition to be met.
+    timeout: 5000,
+
+    toHaveScreenshot: {
+      // An acceptable amount of pixels that could be different, unset by default.
+      maxDiffPixels: 10,
+    },
+
+    toMatchSnapshot: {
+      // An acceptable ratio of pixels that are different to the total amount of pixels, between 0 and 1.
+      maxDiffPixelRatio: 0.1,
+    },
+  },
+
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
     baseURL: 'http://127.0.0.1:6006',

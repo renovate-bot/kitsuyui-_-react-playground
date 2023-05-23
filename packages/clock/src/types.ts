@@ -7,3 +7,11 @@ export interface ClockContainerProps {
   children: React.ReactElement | React.ReactElement[]
   refreshInterval?: number
 }
+
+export type StepStyle = 'tick' | 'sweep'
+
+export type HMS = {
+  hour: number
+  minute: number
+  second: number
+}

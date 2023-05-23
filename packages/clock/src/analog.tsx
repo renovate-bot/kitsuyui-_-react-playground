@@ -1,7 +1,14 @@
-import { DateTime } from 'luxon'
 import React from 'react'
 
-import { ClockProps } from './types'
+import {
+  degreeToCos,
+  degreeToSin,
+  hourToDegree,
+  minuteToDegree,
+  secondToDegree,
+  calcHMS,
+} from './math'
+import { ClockProps, StepStyle } from './types'
 
 export interface AnalogClockStyle {
   width: number
@@ -62,8 +69,6 @@ export const defaultAnalogClockStyle: AnalogClockStyle = {
     color: 'black',
   },
 }
-
-export type StepStyle = 'tick' | 'sweep'
 
 interface AnalogClockCustomize {
   step?: StepStyle
@@ -209,61 +214,4 @@ function customizeClockProps(
       ...centerPointStyle,
     },
   }
-}
-
-type hms = {
-  hour: number
-  minute: number
-  second: number
-}
-
-function calcHMS(date: Date, timezone: string, stepStyle: StepStyle): hms {
-  switch (stepStyle) {
-    case 'tick':
-      return TickHMS(date, timezone)
-    case 'sweep':
-      return SweepHMS(date, timezone)
-  }
-}
-
-function TickHMS(date: Date, timezone: string): hms {
-  const datetime = DateTime.fromJSDate(date)
-  const dt = datetime.setZone(timezone)
-  const hour = dt.hour
-  const minute = dt.minute
-  const second = dt.second
-  return { hour, minute, second }
-}
-
-function SweepHMS(date: Date, timezone: string): hms {
-  const datetime = DateTime.fromJSDate(date)
-  const dt = datetime.setZone(timezone)
-  const hour = dt.hour + dt.minute / 60 + dt.second / 3600
-  const minute = dt.minute + dt.second / 60
-  const second = dt.second + dt.millisecond / 1000
-  return { hour, minute, second }
-}
-
-function hourToDegree(hour: number): number {
-  return hour * 30
-}
-
-function secondToDegree(second: number): number {
-  return second * 6
-}
-
-function minuteToDegree(minute: number): number {
-  return minute * 6
-}
-
-function degreeToSin(degree: number): number {
-  return Math.sin(degreeToRadian(degree))
-}
-
-function degreeToCos(degree: number): number {
-  return Math.cos(degreeToRadian(degree))
-}
-
-function degreeToRadian(degree: number): number {
-  return degree * (Math.PI / 180)
 }

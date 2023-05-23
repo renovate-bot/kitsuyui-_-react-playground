@@ -24,13 +24,13 @@ import './App.css'
 
 const Clock = () => {
   return (
-    <ClockContainer>
+    <ClockContainer refreshInterval={10}>
       <DateContext.Consumer>
         {(date: Date) => (
           <>
             <AnalogClock timezone="Asia/Tokyo" date={date} />
             <DigitalClock timezone="Asia/Tokyo" date={date} />
-            <AnalogClock timezone="America/New_York" date={date} />
+            <AnalogClock timezone="America/New_York" date={date} step="sweep" />
             <DigitalClock timezone="America/New_York" date={date} />
           </>
         )}

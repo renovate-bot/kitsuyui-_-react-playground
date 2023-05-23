@@ -10,8 +10,6 @@ export interface ClockContainerProps {
 
 export type StepStyle = 'tick' | 'sweep'
 
-export type AnalogClockFaceType = 'roman' | 'arabic'
-
 export type HMS = {
   hour: number
   minute: number

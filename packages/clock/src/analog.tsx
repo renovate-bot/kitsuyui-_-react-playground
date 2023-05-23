@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { computeFace, FaceType } from './faces'
 import {
   degreeToCos,
   degreeToSin,
@@ -8,7 +9,7 @@ import {
   secondToDegree,
   calcHMS,
 } from './math'
-import { ClockProps, StepStyle, AnalogClockFaceType as FaceType } from './types'
+import { ClockProps, StepStyle } from './types'
 
 export interface AnalogClockStyle {
   width: number
@@ -326,52 +327,6 @@ const Faces = (props: {
     )
   }
   return <>{faces}</>
-}
-
-export function computeFace(num: number, faceType: FaceType): string {
-  switch (faceType) {
-    case 'arabic':
-      return arabicFace(num)
-    case 'roman':
-      return romanFace(num)
-  }
-}
-
-export function arabicFace(num: number): string {
-  if (num === 0) {
-    return '12'
-  }
-  return `${num}`
-}
-
-export function romanFace(num: number): string {
-  switch (num) {
-    case 0:
-      return 'Ⅻ'
-    case 1:
-      return 'Ⅰ'
-    case 2:
-      return 'Ⅱ'
-    case 3:
-      return 'Ⅲ'
-    case 4:
-      return 'Ⅳ'
-    case 5:
-      return `Ⅴ`
-    case 6:
-      return 'Ⅵ'
-    case 7:
-      return 'Ⅶ'
-    case 8:
-      return 'Ⅷ'
-    case 9:
-      return 'Ⅸ'
-    case 10:
-      return 'Ⅹ'
-    case 11:
-      return 'Ⅺ'
-  }
-  return `${num}` // unreachable
 }
 
 function customizeClockProps(

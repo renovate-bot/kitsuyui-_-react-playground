@@ -8,12 +8,13 @@ import {
   secondToDegree,
   calcHMS,
 } from './math'
-import { ClockProps, StepStyle } from './types'
+import { ClockProps, StepStyle, AnalogClockFaceType as FaceType } from './types'
 
 export interface AnalogClockStyle {
   width: number
   height: number
   step: StepStyle
+  face: FaceType
   bigHand: HandStyle
   smallHand: HandStyle
   secondHand: HandStyle
@@ -51,8 +52,9 @@ export const defaultAnalogClockStyle: AnalogClockStyle = {
   width: 100,
   height: 100,
   step: 'tick',
+  face: 'arabic',
   bigHand: {
-    width: 2,
+    width: 3,
     length: 30,
     color: 'black',
   },
@@ -62,12 +64,12 @@ export const defaultAnalogClockStyle: AnalogClockStyle = {
     color: 'black',
   },
   secondHand: {
-    width: 2,
-    length: 40,
+    width: 1,
+    length: 45,
     color: 'red',
   },
   frame: {
-    size: 45,
+    size: 49,
     width: 1,
     color: 'black',
     backgroundColor: 'white',
@@ -90,6 +92,7 @@ export const defaultAnalogClockStyle: AnalogClockStyle = {
 
 interface AnalogClockCustomize {
   step?: StepStyle
+  face?: FaceType
   width?: number
   height?: number
   bigHand?: Partial<HandStyle>
@@ -113,6 +116,7 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
     secondHand,
     frame,
     step,
+    face,
     centerPoint,
     hourLines,
     minuteLines,
@@ -165,6 +169,12 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
           length={minuteLines.length}
           width={minuteLines.width}
           color={minuteLines.color}
+        />
+        <Faces
+          centerX={centerX}
+          centerY={centerY}
+          radius={frame.size - minuteLines.length}
+          faceType={face}
         />
         <Hand
           centerX={centerX}
@@ -287,6 +297,75 @@ const Lines = (props: {
   return <>{lines}</>
 }
 
+const Faces = (props: {
+  centerX: number
+  centerY: number
+  radius: number
+  faceType: FaceType
+}) => {
+  const { centerX, centerY, radius } = props
+  const faces = []
+  for (let i = 0; i < 12; i++) {
+    const degree = (360 / 12) * i + 180
+    const textSize = radius / 5
+    const x = centerX + (radius - textSize) * degreeToSin(-degree)
+    const y = centerY + (radius - textSize) * degreeToCos(-degree)
+    faces.push(
+      <text
+        key={i}
+        x={x}
+        y={y}
+        textAnchor="middle"
+        dominantBaseline="central"
+        fontSize={textSize}
+        fontFamily="monospace"
+        fill="black"
+      >
+        {getFace(i, props.faceType)}
+      </text>
+    )
+  }
+  return <>{faces}</>
+}
+
+function getFace(num: number, faceType: FaceType): string {
+  switch (faceType) {
+    case 'arabic':
+      if (num === 0) {
+        return '12'
+      }
+      return `${num}`
+    case 'roman':
+      switch (num) {
+        case 0:
+          return 'Ⅻ'
+        case 1:
+          return 'Ⅰ'
+        case 2:
+          return 'Ⅱ'
+        case 3:
+          return 'Ⅲ'
+        case 4:
+          return 'Ⅳ'
+        case 5:
+          return `Ⅴ`
+        case 6:
+          return 'Ⅵ'
+        case 7:
+          return 'Ⅶ'
+        case 8:
+          return 'Ⅷ'
+        case 9:
+          return 'Ⅸ'
+        case 10:
+          return 'Ⅹ'
+        case 11:
+          return 'Ⅺ'
+      }
+      return `${num}` // unreachable
+  }
+}
+
 function customizeClockProps(
   customize: AnalogClockCustomize
 ): AnalogClockStyle {
@@ -294,6 +373,7 @@ function customizeClockProps(
     width,
     height,
     step,
+    face,
     bigHand,
     smallHand,
     secondHand,
@@ -309,6 +389,7 @@ function customizeClockProps(
     width,
     height,
     step,
+    face,
     bigHand: {
       ...defaultAnalogClockStyle.bigHand,
       ...bigHand,

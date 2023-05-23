@@ -30,7 +30,12 @@ const Clock = () => {
           <>
             <AnalogClock timezone="Asia/Tokyo" date={date} />
             <DigitalClock timezone="Asia/Tokyo" date={date} />
-            <AnalogClock timezone="America/New_York" date={date} step="sweep" />
+            <AnalogClock
+              timezone="America/New_York"
+              date={date}
+              step="sweep"
+              face="roman"
+            />
             <DigitalClock timezone="America/New_York" date={date} />
           </>
         )}

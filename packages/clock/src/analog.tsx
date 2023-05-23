@@ -7,9 +7,9 @@ import {
   hourToDegree,
   minuteToDegree,
   secondToDegree,
-  calcHMS,
 } from './math'
-import { ClockProps, StepStyle } from './types'
+import { calcHMS, StepStyle } from './step'
+import { ClockProps } from './types'
 
 export interface AnalogClockStyle {
   width: number

@@ -19,6 +19,8 @@ export interface AnalogClockStyle {
   secondHand: HandStyle
   frame: FrameStyle
   centerPoint: CenterPointStyle
+  hourLines: LinesStyle
+  minuteLines: LinesStyle
 }
 
 export interface HandStyle {
@@ -36,6 +38,12 @@ export interface FrameStyle {
 
 export interface CenterPointStyle {
   size: number
+  color: string
+}
+
+export interface LinesStyle {
+  width: number
+  length: number
   color: string
 }
 
@@ -60,12 +68,22 @@ export const defaultAnalogClockStyle: AnalogClockStyle = {
   },
   frame: {
     size: 45,
-    width: 2,
+    width: 1,
     color: 'black',
     backgroundColor: 'white',
   },
   centerPoint: {
     size: 2,
+    color: 'black',
+  },
+  hourLines: {
+    width: 1,
+    length: 4,
+    color: 'black',
+  },
+  minuteLines: {
+    width: 1,
+    length: 2,
     color: 'black',
   },
 }
@@ -79,6 +97,8 @@ interface AnalogClockCustomize {
   secondHand?: Partial<HandStyle>
   frame?: Partial<FrameStyle>
   centerPoint?: Partial<CenterPointStyle>
+  hourLines?: Partial<LinesStyle>
+  minuteLines?: Partial<LinesStyle>
 }
 
 type AnalogClockProps = ClockProps & AnalogClockCustomize
@@ -88,14 +108,16 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
   const {
     width,
     height,
-    bigHand: bigHandStyle,
-    smallHand: smallHandStyle,
-    secondHand: secondHandStyle,
-    frame: frameStyle,
-    step: stepStyle,
-    centerPoint: centerPointStyle,
+    bigHand,
+    smallHand,
+    secondHand,
+    frame,
+    step,
+    centerPoint,
+    hourLines,
+    minuteLines,
   } = customizeClockProps(props)
-  const { hour, minute, second } = calcHMS(date, timezone, stepStyle)
+  const { hour, minute, second } = calcHMS(date, timezone, step)
   const centerX = width / 2
   const centerY = height / 2
   return (
@@ -115,36 +137,52 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
         <circle
           cx={centerX}
           cy={centerY}
-          r={frameStyle.size}
-          stroke={frameStyle.color}
-          strokeWidth={frameStyle.width}
-          fill={frameStyle.backgroundColor}
+          r={frame.size}
+          stroke={frame.color}
+          strokeWidth={frame.width}
+          fill={frame.backgroundColor}
         />
         <circle
           cx={centerX}
           cy={centerY}
-          r={centerPointStyle.size}
-          stroke={centerPointStyle.color}
-          strokeWidth={centerPointStyle.size}
-          fill={centerPointStyle.color}
+          r={centerPoint.size}
+          stroke={centerPoint.color}
+          strokeWidth={centerPoint.size}
+          fill={centerPoint.color}
+        />
+        <HourLines
+          centerX={centerX}
+          centerY={centerY}
+          radius={frame.size - hourLines.length}
+          length={hourLines.length}
+          width={hourLines.width}
+          color={hourLines.color}
+        />
+        <MinutesLines
+          centerX={centerX}
+          centerY={centerY}
+          radius={frame.size - minuteLines.length}
+          length={minuteLines.length}
+          width={minuteLines.width}
+          color={minuteLines.color}
         />
         <Hand
           centerX={centerX}
           centerY={centerY}
           degree={hourToDegree(hour)}
-          {...bigHandStyle}
+          {...bigHand}
         />
         <Hand
           centerX={centerX}
           centerY={centerY}
           degree={minuteToDegree(minute)}
-          {...smallHandStyle}
+          {...smallHand}
         />
         <Hand
           centerX={centerX}
           centerY={centerY}
           degree={secondToDegree(second)}
-          {...secondHandStyle}
+          {...secondHand}
         />
       </svg>
     </div>
@@ -173,6 +211,82 @@ export const Hand: React.FC<
   )
 }
 
+const HourLines = (props: {
+  centerX: number
+  centerY: number
+  radius: number
+  length: number
+  width: number
+  color: string
+}) => {
+  const { centerX, centerY, radius, width, color, length } = props
+  return (
+    <Lines
+      centerX={centerX}
+      centerY={centerY}
+      radius={radius}
+      length={length}
+      count={12}
+      width={width}
+      color={color}
+    />
+  )
+}
+
+const MinutesLines = (props: {
+  centerX: number
+  centerY: number
+  radius: number
+  length: number
+  width: number
+  color: string
+}) => {
+  const { centerX, centerY, radius, width, color, length } = props
+  return (
+    <Lines
+      centerX={centerX}
+      centerY={centerY}
+      radius={radius}
+      length={length}
+      count={60}
+      width={width}
+      color={color}
+    />
+  )
+}
+
+const Lines = (props: {
+  centerX: number
+  centerY: number
+  radius: number
+  length: number
+  count: number
+  width: number
+  color: string
+}) => {
+  const { centerX, centerY, radius, length, count, width, color } = props
+  const lines = []
+  for (let i = 0; i < count; i++) {
+    const degree = (360 / count) * i
+    const x1 = centerX + radius * degreeToSin(degree)
+    const y1 = centerY + radius * degreeToCos(degree)
+    const x2 = x1 + length * degreeToSin(degree)
+    const y2 = y1 + length * degreeToCos(degree)
+    lines.push(
+      <line
+        key={i}
+        x1={x1}
+        y1={y1}
+        x2={x2}
+        y2={y2}
+        stroke={color}
+        strokeWidth={width}
+      />
+    )
+  }
+  return <>{lines}</>
+}
+
 function customizeClockProps(
   customize: AnalogClockCustomize
 ): AnalogClockStyle {
@@ -183,8 +297,10 @@ function customizeClockProps(
     bigHand,
     smallHand,
     secondHand,
-    frame: frameStyle,
-    centerPoint: centerPointStyle,
+    frame,
+    centerPoint,
+    hourLines,
+    minuteLines,
   } = {
     ...defaultAnalogClockStyle,
     ...customize,
@@ -207,11 +323,19 @@ function customizeClockProps(
     },
     frame: {
       ...defaultAnalogClockStyle.frame,
-      ...frameStyle,
+      ...frame,
     },
     centerPoint: {
       ...defaultAnalogClockStyle.centerPoint,
-      ...centerPointStyle,
+      ...centerPoint,
+    },
+    hourLines: {
+      ...defaultAnalogClockStyle.hourLines,
+      ...hourLines,
+    },
+    minuteLines: {
+      ...defaultAnalogClockStyle.minuteLines,
+      ...minuteLines,
     },
   }
 }

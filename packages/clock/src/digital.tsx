@@ -15,7 +15,12 @@ export const DigitalClock: React.FunctionComponent<ClockProps> = (
   const secondStr = dt.second < 10 ? `0${dt.second}` : dt.second
   const ampm = dt.hour < 12 ? 'AM' : 'PM'
   return (
-    <div>
+    <div
+      style={{
+        width: '20em',
+        fontFamily: 'monospace',
+      }}
+    >
       {hourStr}:{minuteStr}:{secondStr} {ampm} ({timezone})
     </div>
   )

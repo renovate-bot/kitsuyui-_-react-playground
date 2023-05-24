@@ -29,10 +29,10 @@ export default defineConfig({
     //   maxDiffPixels: 1,
     // },
 
-    // toMatchSnapshot: {
-    //   // An acceptable ratio of pixels that are different to the total amount of pixels, between 0 and 1.
-    //   maxDiffPixelRatio: 0.0125,
-    // },
+    toMatchSnapshot: {
+      // An acceptable ratio of pixels that are different to the total amount of pixels, between 0 and 1.
+      maxDiffPixelRatio: 0.001,
+    },
   },
 
   use: {

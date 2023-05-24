@@ -3,7 +3,7 @@
 exports[`render MinimalTimer 1`] = `
 <DocumentFragment>
   <div
-    style="border: 1px solid black; width: 6em;"
+    style="width: 6em; font-family: monospace;"
   >
     <form>
       <span>

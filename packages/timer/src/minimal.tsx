@@ -28,8 +28,8 @@ export const MinimalTimer: React.FunctionComponent<TimerProps> = (
   return (
     <div
       style={{
-        border: '1px solid black',
         width: '6em',
+        fontFamily: 'monospace',
       }}
     >
       <form>

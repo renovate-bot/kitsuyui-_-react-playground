@@ -3,9 +3,7 @@ import React from 'react'
 
 import { ClockProps } from './types'
 
-export const DigitalClock: React.FunctionComponent<ClockProps> = (
-  props
-): JSX.Element => {
+export const DigitalClock: React.FC<ClockProps> = (props): JSX.Element => {
   const { timezone, date } = props
   const datetime = DateTime.fromJSDate(date)
   const dt = datetime.setZone(timezone)

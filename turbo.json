@@ -6,7 +6,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["build/**"]
+      "outputs": ["examples/simple/build/**", "packages/*/dist/**"]
     },
     "test": {
       "dependsOn": ["^test"]

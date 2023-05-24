@@ -1,13 +1,6 @@
 import React from 'react'
 
 import { computeFace, FaceType } from './faces'
-import {
-  degreeToCos,
-  degreeToSin,
-  hourToDegree,
-  minuteToDegree,
-  secondToDegree,
-} from './math'
 import { calcHMS, StepStyle } from './step'
 import { ClockProps } from './types'
 
@@ -159,17 +152,13 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
           centerX={centerX}
           centerY={centerY}
           radius={frame.size - hourLines.length}
-          length={hourLines.length}
-          width={hourLines.width}
-          color={hourLines.color}
+          {...hourLines}
         />
         <MinutesLines
           centerX={centerX}
           centerY={centerY}
           radius={frame.size - minuteLines.length}
-          length={minuteLines.length}
-          width={minuteLines.width}
-          color={minuteLines.color}
+          {...minuteLines}
         />
         <Faces
           centerX={centerX}
@@ -180,19 +169,19 @@ export const AnalogClock: React.FC<AnalogClockProps> = (props): JSX.Element => {
         <Hand
           centerX={centerX}
           centerY={centerY}
-          degree={hourToDegree(hour)}
+          degree={30 * hour}
           {...bigHand}
         />
         <Hand
           centerX={centerX}
           centerY={centerY}
-          degree={minuteToDegree(minute)}
+          degree={6 * minute}
           {...smallHand}
         />
         <Hand
           centerX={centerX}
           centerY={centerY}
-          degree={secondToDegree(second)}
+          degree={6 * second}
           {...secondHand}
         />
       </svg>
@@ -208,8 +197,9 @@ export const Hand: React.FC<
   } & HandStyle
 > = (props) => {
   const { centerX, centerY, degree, length, width, color } = props
-  const x = centerX + length * degreeToSin(degree)
-  const y = centerY - length * degreeToCos(degree)
+  const radDegree = degreeToRadian(degree)
+  const x = centerX + length * Math.sin(radDegree)
+  const y = centerY - length * Math.cos(radDegree) // clock coordinate
   return (
     <line
       x1={centerX}
@@ -279,10 +269,11 @@ const Lines = (props: {
   const lines = []
   for (let i = 0; i < count; i++) {
     const degree = (360 / count) * i
-    const x1 = centerX + radius * degreeToSin(degree)
-    const y1 = centerY + radius * degreeToCos(degree)
-    const x2 = x1 + length * degreeToSin(degree)
-    const y2 = y1 + length * degreeToCos(degree)
+    const radDegree = degreeToRadian(degree)
+    const x1 = centerX + radius * Math.sin(radDegree)
+    const y1 = centerY + radius * Math.cos(radDegree)
+    const x2 = x1 + length * Math.sin(radDegree)
+    const y2 = y1 + length * Math.cos(radDegree)
     lines.push(
       <line
         key={i}
@@ -306,22 +297,22 @@ const Faces = (props: {
 }) => {
   const { centerX, centerY, radius } = props
   const faces = []
+  const textSize = radius / 5
+  const radius2 = radius - textSize
+  const textStyle = {
+    textAnchor: 'middle',
+    dominantBaseline: 'central',
+    fontSize: textSize,
+    fontFamily: 'monospace',
+    fill: 'black',
+  }
   for (let i = 0; i < 12; i++) {
-    const degree = (360 / 12) * i + 180
-    const textSize = radius / 5
-    const x = centerX + (radius - textSize) * degreeToSin(-degree)
-    const y = centerY + (radius - textSize) * degreeToCos(-degree)
+    const degree = (360 / 12) * i
+    const rad = degreeToRadian(degree)
+    const x = centerX + radius2 * Math.sin(rad)
+    const y = centerY - radius2 * Math.cos(rad) // clock coordinate
     faces.push(
-      <text
-        key={i}
-        x={x}
-        y={y}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize={textSize}
-        fontFamily="monospace"
-        fill="black"
-      >
+      <text key={i} x={x} y={y} {...textStyle}>
         {computeFace(i, props.faceType)}
       </text>
     )
@@ -382,4 +373,8 @@ function customizeClockProps(
       ...minuteLines,
     },
   }
+}
+
+function degreeToRadian(degree: number): number {
+  return (degree * Math.PI) / 180
 }

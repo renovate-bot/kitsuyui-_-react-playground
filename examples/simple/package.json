@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@kitsuyui/react-clock": "file:../../packages/clock",
-    "@kitsuyui/react-stopwatch": "file:../../packages/stopwatch",
-    "@kitsuyui/react-timer": "file:../../packages/timer",
+    "@kitsuyui/react-clock": "file:../../packages/components",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "use-sound": "^4.0.1"

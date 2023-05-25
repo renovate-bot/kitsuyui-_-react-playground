@@ -4,6 +4,31 @@
     "start": {
       "dependsOn": ["^start"]
     },
+    "@kitsuyui/react-clock#build": {
+      "outputs": ["packages/react-clock/dist/**"]
+    },
+    "@kitsuyui/react-timer#build": {
+      "outputs": ["packages/react-timer/dist/**"]
+    },
+    "@kitsuyui/react-stopwatch#build": {
+      "outputs": ["packages/react-stopwatch/dist/**"]
+    },
+    "@kitsuyui/react-components#build": {
+      "dependsOn": [
+        "@kitsuyui/react-clock#build",
+        "@kitsuyui/react-timer#build",
+        "@kitsuyui/react-stopwatch#build"
+      ],
+      "outputs": ["packages/react-components/dist/**"]
+    },
+    "simple#build": {
+      "dependsOn": ["@kitsuyui/react-components#build"],
+      "outputs": ["examples/simple/build/**"]
+    },
+    "storybook#build": {
+      "dependsOn": ["@kitsuyui/react-components#build"],
+      "outputs": ["packages/storybook/dist/**"]
+    },
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["examples/simple/build/**", "packages/*/dist/**"]

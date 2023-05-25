@@ -6,7 +6,7 @@ import { ClockContainerProps } from './types'
 
 export const DateContext = React.createContext(new Date())
 
-export const ClockContainer: React.FunctionComponent<ClockContainerProps> = (
+export const ClockContainer: React.FC<ClockContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props

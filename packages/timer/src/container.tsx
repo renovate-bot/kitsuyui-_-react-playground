@@ -33,7 +33,7 @@ export function calcRemaining(targetDate: Date) {
   return (targetDate.getTime() - new Date().getTime()) / 1000
 }
 
-export const TimerContainer: React.FunctionComponent<TimerContainerProps> = (
+export const TimerContainer: React.FC<TimerContainerProps> = (
   props
 ): JSX.Element => {
   const { children } = props

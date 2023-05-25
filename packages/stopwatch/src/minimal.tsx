@@ -20,7 +20,7 @@ export function toLabel(value: number) {
   )}.${threeDigit.format(milliseconds)}`
 }
 
-export const MinimalStopwatch: React.FunctionComponent<StopwatchProps> = (
+export const MinimalStopwatch: React.FC<StopwatchProps> = (
   props
 ): JSX.Element => {
   const { elapsedTime, running, toggle, reset } = props

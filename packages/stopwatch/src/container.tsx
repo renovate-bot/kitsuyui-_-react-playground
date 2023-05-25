@@ -31,9 +31,9 @@ function calcElapsedTime(startTime: Date) {
   return calcTimeDiff(startTime, new Date())
 }
 
-export const StopwatchContainer: React.FunctionComponent<
-  StopwatchContainerProps
-> = (props): JSX.Element => {
+export const StopwatchContainer: React.FC<StopwatchContainerProps> = (
+  props
+): JSX.Element => {
   const { children } = props
   const emptyFn = (_event: CustomEvent) => {
     /* do nothing */

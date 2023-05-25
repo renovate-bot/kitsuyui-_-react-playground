@@ -20,9 +20,7 @@ export function toLabel(value: number) {
   )}.${threeDigit.format(milliseconds)}`
 }
 
-export const MinimalTimer: React.FunctionComponent<TimerProps> = (
-  props
-): JSX.Element => {
+export const MinimalTimer: React.FC<TimerProps> = (props): JSX.Element => {
   const { remaining, running, incrementTimerValue, toggle, reset } = props
 
   return (

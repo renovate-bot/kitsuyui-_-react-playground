@@ -6,6 +6,8 @@ import {
 } from '@kitsuyui/react-clock'
 import React from 'react'
 
+import type { Meta, StoryObj } from '@storybook/react'
+
 const Clock = () => {
   return (
     <ClockContainer refreshInterval={10}>
@@ -28,14 +30,14 @@ const Clock = () => {
   )
 }
 
-export default {
+const meta: Meta<typeof Clock> = {
   title: 'Clock',
   component: Clock,
-  argTypes: {},
 }
 
-Clock.defaultProps = {}
+export default meta
+type Story = StoryObj<typeof Clock>
 
-const Template = (args) => <Clock {...args} />
-
-export const Default = Template.bind({})
+export const Default: Story = {
+  args: {},
+}

@@ -1065,7 +1065,7 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.8", "@babel/runtime@^7.20.7", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.16.3", "@babel/runtime@^7.17.2", "@babel/runtime@^7.17.8", "@babel/runtime@^7.20.7", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
   integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
@@ -11789,6 +11789,15 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.2.tgz#56138d200f9fe5f582ad63bc2704dbc0e4a45068"
   integrity sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==
 
+storybook-addon-swc@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-swc/-/storybook-addon-swc-1.2.0.tgz#a407acf18f4b1de4304fbc26f93aeda797fb3cb3"
+  integrity sha512-PEpxhAH+407KTcVDC7uUH4S26qtuBDC/JlZI3NqFYu0Tm2uCBf56On+13lK4iE3Iz8FORl4aSXo2RricJ/UhPQ==
+  dependencies:
+    "@babel/runtime" "^7.17.2"
+    deepmerge "^4.2.2"
+    swc-loader "^0.1.15"
+
 storybook@^7.0.17:
   version "7.0.17"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-7.0.17.tgz#9bd5bc1b6a42226019115fae5d1e6e793f9085e9"
@@ -12065,6 +12074,11 @@ svgo@^2.7.0:
     csso "^4.2.0"
     picocolors "^1.0.0"
     stable "^0.1.8"
+
+swc-loader@^0.1.15:
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/swc-loader/-/swc-loader-0.1.16.tgz#4c718d698e518f3e6ceb9f7872c1855cdb187066"
+  integrity sha512-NKIm8aJjK/z/yfzk+v7YGwJMjBKaLaUs9ZKI2zoaIGKAjtkwjO92ZLI0fiTZuwzRqVLQl/29fBdSgFCBzquR0w==
 
 symbol-tree@^3.2.4:
   version "3.2.4"

@@ -31,7 +31,7 @@ const Clock = () => {
 }
 
 const meta: Meta<typeof Clock> = {
-  title: 'Clock',
+  title: 'Clock/Example',
   component: Clock,
 }
 

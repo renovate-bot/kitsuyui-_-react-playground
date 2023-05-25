@@ -3,7 +3,7 @@ import { AnalogClock } from '@kitsuyui/react-clock'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof AnalogClock> = {
-  title: 'AnalogClock',
+  title: 'Clock/Analog',
   component: AnalogClock,
 }
 

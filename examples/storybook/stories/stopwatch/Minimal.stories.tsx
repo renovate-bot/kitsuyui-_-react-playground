@@ -3,7 +3,7 @@ import { MinimalStopwatch } from '@kitsuyui/react-stopwatch'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof MinimalStopwatch> = {
-  title: 'MinimalStopwatch',
+  title: 'Stopwatch/Minimal',
   component: MinimalStopwatch,
 }
 

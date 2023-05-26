@@ -1,8 +1,8 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
-    "start": {
-      "dependsOn": ["^start"]
+    "dev": {
+      "dependsOn": ["^dev"]
     },
     "@kitsuyui/react-clock#build": {
       "outputs": ["packages/react-clock/dist/**"]

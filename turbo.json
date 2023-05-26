@@ -21,17 +21,20 @@
       ],
       "outputs": ["packages/react-components/dist/**"]
     },
-    "simple#build": {
+    "@kitsuyui/react-style-bulma#build": {
       "dependsOn": ["@kitsuyui/react-components#build"],
-      "outputs": ["examples/simple/build/**"]
+      "outputs": ["packages/react-style-bulma/dist/**"]
     },
     "storybook#build": {
-      "dependsOn": ["@kitsuyui/react-components#build"],
+      "dependsOn": [
+        "@kitsuyui/react-components#build",
+        "@kitsuyui/react-style-bulma#build"
+      ],
       "outputs": ["packages/storybook/dist/**"]
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["examples/simple/build/**", "packages/*/dist/**"]
+      "outputs": ["packages/*/dist/**"]
     },
     "test": {
       "dependsOn": ["^test"]

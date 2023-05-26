@@ -23,6 +23,8 @@ Storybook: https://react-playground.storybook.kitsuyui.com/
 
 ## Features
 
+- [x] `@kitsuyui/react-components` ... [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-components.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-components)
+      https://www.npmjs.com/package/@kitsuyui/react-components
 - [x] `@kitsuyui/react-clock` ... [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-clock.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-clock)
       https://www.npmjs.com/package/@kitsuyui/react-clock
 - [x] `@kitsuyui/react-timer` ... [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-timer.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-timer)

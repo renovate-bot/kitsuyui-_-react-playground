@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-clock.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-clock)
 
-<img width="134" alt="clock" src="https://github.com/kitsuyui/react-playground/assets/2596972/8af20bee-4852-44d1-8ac3-ae4d2661c817">
+## Demo
+
+Storybook: https://react-playground.storybook.kitsuyui.com/
 
 ## Installation
 
@@ -53,3 +55,7 @@ export interface ClockProps {
   date: Date
 }
 ```
+
+## License
+
+MIT

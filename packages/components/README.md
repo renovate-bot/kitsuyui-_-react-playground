@@ -1,5 +1,7 @@
 # @kitsuyui/react-components
 
+[![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-components.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-components)
+
 ## What is this?
 
 React components collection.
@@ -9,3 +11,11 @@ React components collection.
 - @kitsuyui/react-timer
 
 and more. This package includes all of this series.
+
+## Demo
+
+Storybook: https://react-playground.storybook.kitsuyui.com/
+
+## License
+
+MIT

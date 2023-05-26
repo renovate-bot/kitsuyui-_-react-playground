@@ -33,15 +33,16 @@ interface DigitalClockProps {
 }
 
 export const Clock = ({
-  timezone = 'UTC',
+  timezone,
   refreshInterval = 10,
 }: DigitalClockProps) => {
+  const timezone2 = timezone || Intl.DateTimeFormat().resolvedOptions().timeZone
   return (
     <ClockContainer refreshInterval={refreshInterval}>
       <DateContext.Consumer>
         {(date: Date) => (
           <>
-            <ClockElement timezone={timezone} date={date} />
+            <ClockElement timezone={timezone2} date={date} />
           </>
         )}
       </DateContext.Consumer>

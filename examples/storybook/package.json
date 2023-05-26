@@ -29,5 +29,7 @@
     "test:vrt": "playwright test",
     "build": "storybook build"
   },
-  "dependencies": {}
+  "dependencies": {
+    "use-sound": "^4.0.1"
+  }
 }

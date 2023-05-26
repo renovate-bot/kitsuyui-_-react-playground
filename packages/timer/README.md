@@ -2,7 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/@kitsuyui%2Freact-timer.svg)](https://badge.fury.io/js/@kitsuyui%2Freact-timer)
 
-<img width="120" alt="timer" src="https://github.com/kitsuyui/react-playground/assets/2596972/beaa09cf-6c26-4a57-8f71-576bc6363921">
+## Demo
+
+Storybook: https://react-playground.storybook.kitsuyui.com/
 
 ## Installation
 
@@ -55,3 +57,7 @@ export interface TimerActions {
 
 export type TimerProps = TimerValue & TimerActions
 ```
+
+## License
+
+MIT

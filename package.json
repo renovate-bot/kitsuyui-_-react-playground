@@ -4,7 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "start": "turbo run start --parallel",
+    "start": "turbo run dev --parallel",
+    "dev": "turbo run dev --parallel",
     "build": "turbo build",
     "test": "turbo test",
     "lint": "turbo lint",

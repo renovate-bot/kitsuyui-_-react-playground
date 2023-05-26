@@ -1766,22 +1766,22 @@
     react-dom "^18.2.0"
     react-use "^17.4.0"
 
-"@kitsuyui/react-clock@file:packages/components":
-  version "0.0.0"
-  dependencies:
-    "@kitsuyui/react-clock" latest
-    "@kitsuyui/react-stopwatch" latest
-    "@kitsuyui/react-timer" latest
-    react "^18.2.0"
-    react-dom "^18.2.0"
-    react-use "^17.4.0"
-
 "@kitsuyui/react-clock@latest":
   version "0.0.9"
   resolved "https://registry.yarnpkg.com/@kitsuyui/react-clock/-/react-clock-0.0.9.tgz#258761491cae557970aded9b1214d22fa9c6940a"
   integrity sha512-TA2eRBmwuJfkCk8eVD+rEjVt5CY6a2Z/eI8/UWGAlqSRGrvWYMLI2JaR0aI3zZ7jV+c19bDZYNvNnQHMDI4Tzw==
   dependencies:
     luxon "^3.3.0"
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-use "^17.4.0"
+
+"@kitsuyui/react-components@file:packages/components":
+  version "0.0.0"
+  dependencies:
+    "@kitsuyui/react-clock" latest
+    "@kitsuyui/react-stopwatch" latest
+    "@kitsuyui/react-timer" latest
     react "^18.2.0"
     react-dom "^18.2.0"
     react-use "^17.4.0"

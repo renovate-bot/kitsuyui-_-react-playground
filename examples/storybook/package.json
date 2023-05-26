@@ -25,8 +25,7 @@
     "storybook-addon-swc": "^1.2.0"
   },
   "scripts": {
-    "start": "storybook dev -p 6006",
-    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006 --ci",
     "test:vrt": "playwright test",
     "build": "storybook build"
   },

@@ -27,6 +27,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006 --ci",
     "test:vrt": "playwright test",
+    "test:vrt:update": "playwright test --update-snapshots",
     "build": "storybook build"
   },
   "dependencies": {

@@ -39,6 +39,11 @@
     "test": {
       "dependsOn": ["^test"]
     },
-    "test:vrt": {}
+    "test:vrt": {
+      "dependsOn": ["^test:vrt:update"]
+    },
+    "test:vrt:update": {
+      "outputs": ["examples/storybook/tests/**/*.png"]
+    }
   }
 }

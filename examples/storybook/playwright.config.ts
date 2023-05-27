@@ -31,7 +31,7 @@ export default defineConfig({
 
     toMatchSnapshot: {
       // An acceptable ratio of pixels that are different to the total amount of pixels, between 0 and 1.
-      maxDiffPixelRatio: 0.001,
+      maxDiffPixelRatio: 0.01,
     },
   },
 

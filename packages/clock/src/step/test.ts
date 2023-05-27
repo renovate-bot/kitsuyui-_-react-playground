@@ -10,7 +10,7 @@ test('tickHMS returns HMS', () => {
 
   const dt2 = new Date('2021-01-01T10:08:14Z')
   expect(tickHMS(dt2, 'Asia/Tokyo')).toEqual({
-    hour: 19,
+    hour: 19.133333333333333,
     minute: 8,
     second: 14,
   })

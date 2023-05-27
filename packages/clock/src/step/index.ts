@@ -27,7 +27,7 @@ export function calcHMS(
 export function tickHMS(date: Date, timezone: string): HMS {
   const datetime = DateTime.fromJSDate(date)
   const dt = datetime.setZone(timezone)
-  const hour = dt.hour
+  const hour = dt.hour + dt.minute / 60
   const minute = dt.minute
   const second = dt.second
   return { hour, minute, second }

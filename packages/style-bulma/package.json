@@ -16,8 +16,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "dependencies": {
-    "@kitsuyui/react-components": "latest",
     "@kitsuyui/react-clock": "latest",
+    "@kitsuyui/react-components": "latest",
     "@kitsuyui/react-stopwatch": "latest",
     "@kitsuyui/react-timer": "latest",
     "bulma": "^0.9.4",

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react'
 import React from 'react'
 
-import { DigitalClock } from '.'
+import { Clock } from '.'
 
 test('render Clock', () => {
-  render(<DigitalClock />)
+  render(<Clock />)
 })

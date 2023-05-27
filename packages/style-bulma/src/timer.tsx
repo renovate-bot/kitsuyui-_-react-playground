@@ -8,11 +8,16 @@ export const TimerElement = (props: TimerProps) => {
   const { reset, toggle, incrementTimerValue } = props
   const minutes = Math.floor(remaining / 60)
   const seconds = remaining % 60 | 0
+  const milliseconds = (remaining % 1) * 1000
   const fmt = Intl.NumberFormat('en-US', {
     minimumIntegerDigits: 2,
   })
-
-  const remainingString = `${fmt.format(minutes)}:${fmt.format(seconds)}`
+  const milliFmt = Intl.NumberFormat('en-US', {
+    minimumIntegerDigits: 3,
+  })
+  const remainingString = `${fmt.format(minutes)}:${fmt.format(
+    seconds
+  )}:${milliFmt.format(milliseconds)}`
 
   return (
     <div className="card">
@@ -21,7 +26,7 @@ export const TimerElement = (props: TimerProps) => {
       </div>
       <footer className="card-footer">
         <span
-          className="card-footer-item"
+          className="card-footer-item is-clickable"
           onClick={(e) => {
             e.preventDefault()
             incrementTimerValue(60)
@@ -30,7 +35,7 @@ export const TimerElement = (props: TimerProps) => {
           +1m
         </span>
         <span
-          className="card-footer-item"
+          className="card-footer-item is-clickable"
           onClick={(e) => {
             e.preventDefault()
             incrementTimerValue(1)
@@ -39,12 +44,15 @@ export const TimerElement = (props: TimerProps) => {
           +1s
         </span>
         <span
-          className={'card-footer-item' + (running ? '' : ' disable')}
+          className={
+            'card-footer-item ' +
+            (running || remaining !== 0 ? 'is-clickable' : 'disable')
+          }
           onClick={reset}
         >
           Reset
         </span>
-        <span className="card-footer-item" onClick={toggle}>
+        <span className="card-footer-item is-clickable" onClick={toggle}>
           {running ? 'Stop' : 'Start'}
         </span>
       </footer>

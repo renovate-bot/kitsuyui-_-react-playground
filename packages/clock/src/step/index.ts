@@ -27,7 +27,9 @@ export function calcHMS(
 export function tickHMS(date: Date, timezone: string): HMS {
   const datetime = DateTime.fromJSDate(date)
   const dt = datetime.setZone(timezone)
-  const hour = dt.hour + dt.minute / 60
+  // hour hand moves 1 step every 12 minutes
+  const m = (dt.minute / 12) | 0
+  const hour = dt.hour + m / 5
   const minute = dt.minute
   const second = dt.second
   return { hour, minute, second }

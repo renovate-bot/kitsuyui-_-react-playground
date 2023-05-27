@@ -3,7 +3,7 @@ import { MinimalTimer } from '@kitsuyui/react-timer'
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof MinimalTimer> = {
-  title: 'Timer/Minimal',
+  title: 'Base/Timer/Minimal',
   component: MinimalTimer,
 }
 

@@ -12,11 +12,17 @@ export const StopwatchElement = (props: StopwatchProps) => {
   const fmt = Intl.NumberFormat('en-US', {
     minimumIntegerDigits: 2,
   })
+  const milliFmt = Intl.NumberFormat('en-US', {
+    minimumIntegerDigits: 3,
+  })
 
   const minutes = Math.floor(elapsedTime / 60)
   const seconds = elapsedTime % 60 | 0
+  const milliseconds = (elapsedTime % 1) * 1000
 
-  const elapsedTimeStr = `${fmt.format(minutes)}:${fmt.format(seconds)}`
+  const elapsedTimeStr = `${fmt.format(minutes)}:${fmt.format(
+    seconds
+  )}:${milliFmt.format(milliseconds)}`
 
   return (
     <div className="card">
@@ -25,12 +31,14 @@ export const StopwatchElement = (props: StopwatchProps) => {
       </div>
       <footer className="card-footer">
         <span
-          className={'card-footer-item' + (running ? '' : ' disable')}
+          className={
+            'card-footer-item ' + (running ? 'is-clickable' : 'disable')
+          }
           onClick={reset}
         >
           Reset
         </span>
-        <span className="card-footer-item" onClick={toggle}>
+        <span className="card-footer-item is-clickable" onClick={toggle}>
           {running ? 'Stop' : 'Start'}
         </span>
       </footer>

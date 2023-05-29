@@ -2,6 +2,7 @@ import {
   StopwatchContainer,
   StopwatchContext,
   StopwatchProps,
+  utils,
 } from '@kitsuyui/react-stopwatch'
 import React from 'react'
 
@@ -9,21 +10,12 @@ import 'bulma/css/bulma.css'
 
 export const StopwatchElement = (props: StopwatchProps) => {
   const { running, elapsedTime, reset, toggle } = props
-  const fmt = Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 2,
-  })
-  const milliFmt = Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 3,
-  })
-
   const minutes = Math.floor(elapsedTime / 60)
   const seconds = elapsedTime % 60 | 0
   const milliseconds = (elapsedTime % 1) * 1000
-
-  const elapsedTimeStr = `${fmt.format(minutes)}:${fmt.format(
+  const elapsedTimeStr = `${utils.zeroPad2(minutes)}:${utils.zeroPad2(
     seconds
-  )}:${milliFmt.format(milliseconds)}`
-
+  )}:${utils.zeroPad3(milliseconds)}`
   return (
     <div className="card">
       <div className="card-content">

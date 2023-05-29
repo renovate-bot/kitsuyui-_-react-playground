@@ -1,23 +1,16 @@
 import React from 'react'
 
+import { zeroPad2, zeroPad3 } from './utils'
+
 import type { StopwatchProps } from './types'
 export type * from './types'
 export * from './container'
 
 export function toLabel(value: number) {
-  const twoDigit = new Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 2,
-  })
-  const threeDigit = new Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 3,
-  })
-
   const minutes = Math.floor(value / 60)
   const seconds = value % 60 | 0
   const milliseconds = (value % 1) * 1000
-  return `${twoDigit.format(minutes)}:${twoDigit.format(
-    seconds
-  )}.${threeDigit.format(milliseconds)}`
+  return `${zeroPad2(minutes)}:${zeroPad2(seconds)}.${zeroPad3(milliseconds)}`
 }
 
 export const MinimalStopwatch: React.FC<StopwatchProps> = (

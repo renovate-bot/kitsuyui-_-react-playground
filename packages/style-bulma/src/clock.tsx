@@ -10,6 +10,7 @@ import 'bulma/css/bulma.css'
 
 const ClockElement = (props: ClockProps) => {
   const { date, timezone } = props
+
   const time = date.toLocaleTimeString('ja-JP', {
     timeZone: timezone,
     hour12: false,

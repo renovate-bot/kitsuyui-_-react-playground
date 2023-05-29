@@ -15,6 +15,7 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install
+          ./yarn.links.sh
           npx playwright install
 
       - name: Test

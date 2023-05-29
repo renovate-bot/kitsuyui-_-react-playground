@@ -1,4 +1,9 @@
-import { TimerContainer, TimerContext, TimerProps } from '@kitsuyui/react-timer'
+import {
+  TimerContainer,
+  TimerContext,
+  TimerProps,
+  utils,
+} from '@kitsuyui/react-timer'
 import React from 'react'
 
 import 'bulma/css/bulma.css'
@@ -9,15 +14,9 @@ export const TimerElement = (props: TimerProps) => {
   const minutes = Math.floor(remaining / 60)
   const seconds = remaining % 60 | 0
   const milliseconds = (remaining % 1) * 1000
-  const fmt = Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 2,
-  })
-  const milliFmt = Intl.NumberFormat('en-US', {
-    minimumIntegerDigits: 3,
-  })
-  const remainingString = `${fmt.format(minutes)}:${fmt.format(
+  const remainingString = `${utils.zeroPad2(minutes)}:${utils.zeroPad2(
     seconds
-  )}:${milliFmt.format(milliseconds)}`
+  )}:${utils.zeroPad3(milliseconds)}`
 
   return (
     <div className="card">

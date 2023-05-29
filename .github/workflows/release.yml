@@ -27,9 +27,9 @@ jobs:
           cache-dependency-path: yarn.lock
 
       - name: install and build
-        working-directory: packages/${{ matrix.package_name }}
         run: |
           yarn install
+          ./yarn.links.sh
           yarn build
 
       - name: update version

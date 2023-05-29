@@ -18,7 +18,9 @@ jobs:
         with:
           node-version: 20.x
 
-      - run: yarn install
+      - run: |
+          yarn install
+          ./yarn.links.sh
 
       - run: yarn build
 

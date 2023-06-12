@@ -12,6 +12,16 @@ jobs:
           cache: yarn
           cache-dependency-path: yarn.lock
 
+      - name: Cache playwright
+        id: cache-vrt-macos
+        uses: actions/cache@v3
+        with:
+          path: ~/Library/Caches/ms-playwright
+          key: ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ hashFiles('**/yarn.lock') }}
+            ${{ runner.os }}-build-
+
       - name: Install dependencies
         run: |
           yarn install

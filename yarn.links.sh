@@ -1,5 +1,7 @@
 #!/bin/sh
-cd packages/clock
+cd config/eslint-config-custom
+yarn link
+cd ../../packages/clock
 yarn link
 cd ../timer
 yarn link

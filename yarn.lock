@@ -2219,6 +2219,13 @@
     react-dom "^18.2.0"
     react-use "^17.4.0"
 
+"@kitsuyui/react-dekamoji@file:packages/dekamoji":
+  version "0.0.0"
+  dependencies:
+    react "^18.2.0"
+    react-dom "^18.2.0"
+    react-use "^17.4.0"
+
 "@kitsuyui/react-stopwatch@file:packages/stopwatch":
   version "0.0.0"
   dependencies:

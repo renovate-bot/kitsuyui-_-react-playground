@@ -1,0 +1,1 @@
+export { Dekamoji } from './dekamoji'

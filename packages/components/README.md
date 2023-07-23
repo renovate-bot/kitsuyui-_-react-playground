@@ -9,6 +9,7 @@ React components collection.
 - @kitsuyui/react-clock
 - @kitsuyui/react-stopwatch
 - @kitsuyui/react-timer
+- @kitsuyui/react-dekamoji
 
 and more. This package includes all of this series.
 
